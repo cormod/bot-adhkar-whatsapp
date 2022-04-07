@@ -29,7 +29,7 @@ module.exports = menu = async(client, message) => {
 // ================== أوامر القروبات ================== // 
 
   
-      if ((txt === "hi" || txt === "مرحبا") && isGroupMsg === true){
+      if ((txt === "hi" || txt === "#") && isGroupMsg === true){
        
       await client.sendButtons(from, txtt.t4, [
         {
