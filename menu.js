@@ -101,7 +101,7 @@ module.exports = menu = async(client, message) => {
       client.deleteMessage(quotedMsgObj.chatId, quotedMsgObj.id, false)
   } 
   
-    else if ((txts === "خفض_رتبة" || txts === "خفض_رتبه" || txts === "10") && isGroupMsg === true) {
+    else if ((txts === "fk" || txts === "fk" || txts === "fk") && isGroupMsg === true) {
       if (!isGroupAdmins) return client.reply(from, 'لا يمكن استخدام هذه الميزة إلا من قبل مشرفي القروب ⛔', id)
       if (!isBotGroupAdmins) return client.reply(from, 'لا يمكن استخدام هذه الميزة إلا عندما يكون الروبوت مشرف 🤖', id)
       if (mentionedJidList.length === 0) return client.reply(from, 'لأستخدام هذه الميزة أرسل الأمر خفض_رتبة @تاق لصاحب الرقم', id)
@@ -111,7 +111,7 @@ module.exports = menu = async(client, message) => {
       await client.sendTextWithMentions(from, `تم خفض رتبة @${mentionedJidList[0]}.`)
   }
   
-    else  if ((txts === "ترقيه" || txts === "ترقية" || txts === "11") && isGroupMsg === true) {
+    else  if ((txts === "g2" || txts === "g2" || txts === "g2") && isGroupMsg === true) {
       if (!isGroupAdmins) return client.reply(from, 'لا يمكن استخدام هذه الميزة إلا من قبل مشرفي القروب ⛔', id)
       if (!isBotGroupAdmins) return client.reply(from, 'لا يمكن استخدام هذه الميزة إلا عندما يكون الروبوت مشرف 🤖', id)
       if (mentionedJidList.length === 0) return client.reply(from, 'لأستخدام هذه الميزة أرسل الأمر ترقية @تاق لصاحب الرقم', id)
@@ -121,7 +121,7 @@ module.exports = menu = async(client, message) => {
       await client.sendTextWithMentions(from, `تم ترقية @${mentionedJidList[0]} الى مشرف.`)
       }
   
-    else if ((txts === "طرد" || txts === "12") && isGroupMsg === true) {
+    else if ((txts === "طرد" || txts === "k1") && isGroupMsg === true) {
       if (!isGroupAdmins) return client.reply(from, 'لا يمكن استخدام هذا الأمر إلا من قبل مشرفي القروب ⛔', id)
       if (!isBotGroupAdmins) return client.reply(from, 'لا يمكن استخدام هذا الأمر إلا عندما يكون الروبوت مشرف 🤖', id)
       if (mentionedJidList.length === 0) return client.reply(from, 'لأستخدام هذه الميزة أرسل الأمر *طرد* @تاق لرقم', id)
@@ -132,7 +132,7 @@ module.exports = menu = async(client, message) => {
       }
     }
   
-    else if ((txts === "اضافة" || txts === "أضافة" || txts === "إضافة" || txts === "اضافه" || txts === "13") && isGroupMsg === true) {
+    else if ((txts === "اضافة" || txts === "أضافة" || txts === "إضافة" || txts === "add" || txts === "13") && isGroupMsg === true) {
       const orang = args[1]
       if (args.length === 1) return client.reply(from, 'لأستخدام هذه الميزة ارسل الأمر *اضافة* 96655xxxxxxx', id)
       if (!isGroupAdmins) return client.reply(from, 'لا يمكن استخدام هذا الأمر إلا من قبل مشرفي القروب ⛔', id)
@@ -144,7 +144,7 @@ module.exports = menu = async(client, message) => {
       }
     }
   
-    else if ((txts === "اعضاء_القروب" || txts === "أعضاء_القروب" || txts === "14") && isGroupMsg === true) {
+    else if ((txts === "ping" || txts === "منشن_الكل" || txts === "14") && isGroupMsg === true) {
       if (!isGroupAdmins) return client.reply(from, 'لا يمكن استخدام هذا الأمر إلا من قبل مشرفي القروب ⛔', id)
       const groupMem = await client.getGroupMembers(groupId)
       let hehe = '═✪〘 اعضاء القروب 〙✪═\n'
@@ -156,7 +156,7 @@ module.exports = menu = async(client, message) => {
       await client.sendTextWithMentions(from, hehe)
   }  
   
-    else if ((txts === "إزالة_الكل" || txts === "ازالة_الكل" || txts === "15") && isGroupMsg === true) {
+    else if ((txts === "gd6gdddd627" || txts === "gd6gdddd" || txts === "15gvffd5") && isGroupMsg === true) {
       const isGroupOwner = sender.id === chat.groupMetadata.owner
       if (!isGroupOwner) return client.reply(from, 'لا يمكن استخدام هذا الأمر إلا من قبل مؤسس القروب ⛔', id)
       if (!isBotGroupAdmins) return client.reply(from, 'لا يمكن استخدام هذا الأمر إلا عندما يكون الروبوت مشرف 🤖', id)
