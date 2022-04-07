@@ -11,7 +11,7 @@ module.exports = menu = async(client, message) => {
     try {
    const { id, from, sender, isMedia, isGroupMsg, mentionedJidList, mimetype, quotedMsg, chat, quotedMsgObj } = message
    let {body} = message
-   const ownerNumber = ["966559298917@c.us"]; // ضع رقم صاحب البوت 
+   const ownerNumber = ["97337141057@c.us"]; // ضع رقم صاحب البوت 
    const isOwner = ownerNumber.includes(sender.id)
    const botNumber = await client.getHostNumber()
    const groupId = isGroupMsg ? chat.groupMetadata.id : ''
