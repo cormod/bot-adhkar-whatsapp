@@ -28,7 +28,51 @@ module.exports = menu = async(client, message) => {
   
 // ================== أوامر القروبات ================== // 
 
-  
+   if (quotedMsg && quotedMsg.type == 'sticker') {
+                        if (!q.includes('|')) return await piyo.reply(from, `Untuk mengubah watermark sticker, reply sticker dengan caption ${prefix}takestick package_name | author_name\n\nContoh: ${prefix}takestick piyo | bot`, id)
+                        await piyo.reply(from, ind.wait(), id)
+                        const packnames = q.substring(0, q.indexOf('|') - 1)
+                        const authors = q.substring(q.lastIndexOf('|') + 2)
+                        const mediaData = await decryptMedia(quotedMsg)
+                        const imageBase64 = `data:${quotedMsg.mimetype};base64,${mediaData.toString('base64')}`
+                        await piyo.sendImageAsSticker(from, imageBase64, { author: `${authors}`, pack: `${packnames}` })
+                            .catch(async (err) => {
+                                console.error(err)
+                                await piyo.reply(from, 'Error!', id)
+                            })
+                    } else {
+                        await piyo.reply(from, `Reply sticker yang ingin dicolong dengan caption ${prefix}takestick package_name | author_name\n\nContoh: ${prefix}takestick piyo | bot`, id)
+                    }
+                    break
+                case 'stimg':
+                case 'toimg':
+                    if (quotedMsg && quotedMsg.type == 'sticker') {
+                        const mediaData = await decryptMedia(quotedMsg)
+                        piyo.reply(from, `Sedamg di proses! Silahkan tunggu sebentar...`, id)
+                        const imageBase64 = `data:${quotedMsg.mimetype};base64,${mediaData.toString('base64')}`
+                        await piyo.sendFile(from, imageBase64, 'imgsticker.jpg', 'Berhasil convert Sticker to Image!', id)
+                            .then(() => {
+                                console.log(`Sticker to Image Processed for ${processTime(t, moment())} Seconds`)
+                            })
+                    } else if (!quotedMsg) return piyo.reply(from, `Format salah, silahkan tag sticker yang ingin dijadikan gambar!`, id)
+                    break
+                case 'sticker':
+                case 'stiker':
+                    if (isMedia && isImage || isQuotedImage) {
+                        try {
+                            await piyo.reply(from, ind.wait(), id)
+                            const encryptMedia = isQuotedImage ? quotedMsg : message
+                            const _mimetype = isQuotedImage ? quotedMsg.mimetype : mimetype
+                            const author = 'piyo'
+                            const pack = 'bot'
+                            const mediaData = await decryptMedia(encryptMedia, uaOverride)
+                            const imageBase64 = `data:${_mimetype};base64,${mediaData.toString('base64')}`
+                            await piyo.sendImageAsSticker(from, imageBase64, { author: `${author}`, pack: `${pack}` })
+                            console.log(`Sticker processed for ${processTime(t, moment())} seconds`)
+                        } catch (err) {
+                            console.error(err)
+                            await piyo.reply(from, 'Error!', id)
+                        }
       if ((txt === "hi" || txt === "#") && isGroupMsg === true){
        
       await client.sendButtons(from, txtt.t4, [
