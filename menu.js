@@ -156,7 +156,7 @@ module.exports = menu = async(client, message) => {
   
     else if ((txts === "gd6gdddd627" || txts === "gd6gdddd" || txts === "15gvffd5") && isGroupMsg === true) {
       const isGroupOwner = sender.id === chat.groupMetadata.owner
-      if (!isGroupOwner) return client.reply(from, 'لا يمكن استخدام هذا الأمر إلا من قبل مؤسس القروب ⛔', id)
+      if (!isOwner) return await client.reply(from, 'لا يمكن استخدام هذا الأمر إلا من قبل مؤسس البوت ⛔', id)
       if (!isBotGroupAdmins) return client.reply(from, 'لا يمكن استخدام هذا الأمر إلا عندما يكون الروبوت مشرف 🤖', id)
       const allMem = await client.getGroupMembers(groupId)
       for (let i = 0; i < allMem.length; i++) {
